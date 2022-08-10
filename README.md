@@ -1,43 +1,56 @@
 # StarWars blog database
 
-**Important**: To do this activity you need to `fork` this repo into your **Github** account and then open the forked repo on Gitpod.
+<img src="diagram.png" alt="diagrama">
 
-Inside the `src/models.py` file you will find a couple of classes describing an example database.
+**Important**: Para realizar esta actividad necesitas hacer un  `fork` de este repo en tu cuenta de **Github** Github y luego, abrir el fork en Gitpod.
 
-Here is a 4min video explaining what UML is: [https://www.youtube.com/watch?v=UI6lqHOVHic](https://www.youtube.com/watch?v=UI6lqHOVHic)
+Dentro del archivo `src/models.py` encontrarás un par de clases que describen una base de datos de ejemplo.
 
-We are going to be creating the Entity Relationship Diagram for your StarWars Blog Database, a very similar diagram to this one:
+
+
+Vamos a crear el Diagrama de relación de entidad para la base de datos de un blog de StarWars, un diagrama muy similar a este:
 
 ![Starwars Diagram](https://github.com/breatheco-de/exercise-starwars-data-modeling/blob/master/assets/example.png?raw=true)
 [Click to open diagram](https://app.quickdatabasediagrams.com/#/d/LxNXQZ)
 
 > 🔥 You can use this FREE tool to practice your diagram for the first time: https://app.quickdatabasediagrams.com/#/d/
 
-## 💻 Installation
+## 💻 Instalación
 
-1. Get inside the environment `$ pipenv shell`
+1. Entra dentro del environmen `$ pipenv shell`
 
-2. Install all dependencies `$ pipenv install`
+2. Instala todas las dependencias `$ pipenv install`
 
-3. Generate de diagram as many times as you need `$ python src/models.py`
+3. Genera el diagrama tantas veces como sea necesario `$ python src/models.py`
 
-4. Open the file `diagram.png` to check out your UML diagram!
+4. Abre el archivo `diagram.png` para ver tu diagrama UML!
 
 
-## 📝Instructions
+## 📝Instrucciones
 
-Your Job is to update the `src/models.py` file with the code needed to replicate the StarWars data model.
+Tu trabajo es actualizar el archivo `src/models.py` con el código necesario para replicar el modelo de datos de un blog de StarWars
 
-The project is using the SQLAlchemy Python library to generate the database.
+El proyecto está utilizando la librería Python SQLAlchemy para generar la base de datos.
 
-- Your project must have a table `User` that will represent your blog users.
-- Your blog users will be able to login and save their favorite planets and characters.
-- The database should store the user favorites.
-- The database should store characters and planets.
-- What other tables do you think a blog like this might have?
-- What properties should go inside the user? or inside the Character or Favorite table?
-- What are the relationships between those tables?
-- Please add at least 4 models with all of its properties.
-- Generate the `diagram.png` file at the end by running `$ python3 models.py` on the console.
+- Tu proyecto debe tener una tabla `Usuario` que va a contener la información de cada uno de tus usuarios.
+- Los usuarios del blog podrán iniciar sesión y guardar sus planetas o personajes favoritos.
+- Tu base de datos debe guardar los favoritos de cada usuario del blog para su posterior revisión.
+- Tu base de datos también debe almacenar cada planeta y personaje de starwars.
+- ¿Qué otras tablas crees que necesitarás para tu aplicación?
+- ¿Qué propiedades deben ir dentro de cada tabla? Por ejemplo: El usuario tiene email, password, fecha de subscripción, nombre, apellido, etc.
+- ¿Qué relaciones hay entre las tablas? ¿Cuántos planetas puede guardar un usuario?Nota: Recuerda que las relaciones pueden ser Uno-a-uno, Uno-a-muchos o Muchos-a-muchos.
+- Porfavor agrega por lo menos 4 modelos y sus respectivas relaciones.
+- Genera el`diagram.png` utilizando el comando `$ python3 models.py` en la consola.
+
+## Sobre el proyecto
+
+Finalmente he creado 5 tablas que son:
+1) Usuarios: como propiedades he metido el nombre, apellidos, e-mail y contraseña.
+2) Personajes: Tanto en esta tabla como en las 2 de abajo como propiedad puse solo el nombre.
+3) Planetas
+4) Vehículos
+5) Favoritos : recibe las FK del resto de tablas.
+
+
 
 
