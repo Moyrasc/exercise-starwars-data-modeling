@@ -10,37 +10,42 @@ Base = declarative_base()
 
 class Users(Base):
     __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
+    id_user = Column(Integer, primary_key=True)
     name = Column(String(30), nullable=False)
     last_name = Column(String(30), nullable=False)
     last_name_2 = Column(String(30), nullable=False)
     email = Column(String(30), nullable=False)
     password = Column(String(12), nullable=False)
+    favourites = relationship("Favourites", backref= "users", lazy=True)
+    
     
 
 class Planets(Base):
     __tablename__ = 'planets'
-    id = Column(Integer, primary_key=True)
+    id_planets = Column(Integer, primary_key=True)
     name_planets = Column(String(30))
-    users = relationship("users", backref="planets", lazy=True)
-    fk_planets = Column(Integer, ForeignKey('users.id'))
+    
 
 class Characters(Base):
     __tablename__ = 'characters'
-    id = Column(Integer, primary_key=True)
+    id_characters = Column(Integer, primary_key=True)
     name_characters = Column(String(30))
-    user = relationship("user", backref="characters", lazy=True)
-    fk_characters = Column(Integer, ForeignKey('users.id'))
-    
-    # person_id = Column(Integer, ForeignKey('person.id'))
-    # person = relationship(Person)
 
-class Favorites(Base):
+class Starships(Base):
+    __tablename__ = 'starships'
+    id_starship = Column(Integer, primary_key=True)
+    name_starship = Column(String(30))
+
+   
+
+
+class Favourites(Base):
     __tablename__ = 'favorites'
-    id = Column(Integer, primary_key=True)
-    name_planets = Column(String(30))
-    name_characters = Column(String(30))
-    name_user = Column(String(30))    
+    id_favourite = Column(Integer, primary_key=True)
+    id_user = Column(Integer, ForeignKey('users.id_user'), nullable=False)
+    id_planets = Column(Integer, ForeignKey('planets.id_planet'))
+    id_characters = Column(Integer, ForeignKey('characters.id_character'))
+    id_starship = Column(Integer, ForeignKey('starships.id_starship'))    
 
     def to_dict(self):
         return {}
