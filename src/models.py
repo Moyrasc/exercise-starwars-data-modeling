@@ -14,18 +14,15 @@ class Users(Base):
     name = Column(String(30), nullable=False)
     last_name = Column(String(30), nullable=False)
     last_name_2 = Column(String(30), nullable=False)
-    email = Column(String(30), nullable=False)
+    email = Column(String(30), unique=True,nullable=False)
     password = Column(String(12), nullable=False)
     favourites = relationship("Favourites", backref= "users", lazy=True)
     
-    
-
 class Planets(Base):
     __tablename__ = 'planets'
     id_planets = Column(Integer, primary_key=True)
     name_planets = Column(String(30))
     
-
 class Characters(Base):
     __tablename__ = 'characters'
     id_characters = Column(Integer, primary_key=True)
@@ -35,9 +32,6 @@ class Starships(Base):
     __tablename__ = 'starships'
     id_starship = Column(Integer, primary_key=True)
     name_starship = Column(String(30))
-
-   
-
 
 class Favourites(Base):
     __tablename__ = 'favorites'
